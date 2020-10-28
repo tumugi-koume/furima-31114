@@ -44,3 +44,16 @@
 | approval_code   | integer    | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
 | items_id        | references | null: false, foreign_key: true |
+
+
+## Address テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal_code     | integer    | null: false                    |
+| region          | string     | null: false                    |
+| city            | string     | null: false                    |
+| street          | string     | null: false                    |
+| building        | string     |                                |
+| phone           | string     | null: false, unique: true      |
+| user_id         | references | null: false, foreign_key: true |

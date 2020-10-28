@@ -2,20 +2,24 @@
 
 ## User テーブル
 
-| Column          | Type   | Options                   |
-| --------------  | ------ | ------------------------- |
-| nickname        | string | null: false               |
-| email           | string | null: false, unique: true |
-| password        | string | null: false               |
-| first_name      | string | null: false               |
-| last_name       | string | null: false               |
-| first_name_kana | string | null: false               |
-| last_name_kana  | string | null: false               |
+| Column          | Type    | Options                   |
+| --------------  | ------- | ------------------------- |
+| nickname        | string  | null: false               |
+| email           | string  | null: false, unique: true |
+| password        | string  | null: false               |
+| first_name      | string  | null: false               |
+| last_name       | string  | null: false               |
+| first_name_kana | string  | null: false               |
+| last_name_kana  | string  | null: false               |
 | birthday_year   | integer | null: false               |
 | birthday_month  | integer | null: false               |
 | birthday_day    | integer | null: false               |
 
-### Associations
+### Association
+
+ - has_many :items
+ - has_many :orders
+ - has_one :address
 
 
 ## Items テーブル
@@ -32,6 +36,10 @@
 | price           | integer    | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
 
+### Association
+
+ - belongs_to :user
+ - has_one :order
 
 
 ## Order テーブル
@@ -45,6 +53,13 @@
 | user_id         | references | null: false, foreign_key: true |
 | items_id        | references | null: false, foreign_key: true |
 
+### Association
+
+ - belongs_to :user
+ - belongs_to :item
+ - has_one :address
+
+
 
 ## Address テーブル
 
@@ -57,3 +72,8 @@
 | building        | string     |                                |
 | phone           | string     | null: false, unique: true      |
 | user_id         | references | null: false, foreign_key: true |
+
+### Associations
+
+ - belongs_to :user
+ - belongs_to :order

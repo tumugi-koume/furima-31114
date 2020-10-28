@@ -60,7 +60,7 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| region          | string     | null: false                    |
+| area_id         | string     | null: false                    |
 | city            | string     | null: false                    |
 | street          | string     | null: false                    |
 | building        | string     |                                |

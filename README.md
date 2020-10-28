@@ -65,7 +65,7 @@
 | street          | string     | null: false                    |
 | building        | string     |                                |
 | phone           | string     | null: false, unique: true      |
-| user_id         | references | null: false, foreign_key: true |
+| order           | references | null: false, foreign_key: true |
 
 ### Associations
 

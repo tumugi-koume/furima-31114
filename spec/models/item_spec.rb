@@ -26,31 +26,31 @@ describe Item do
       it 'category_idがないと保存できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category id")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
       it 'status_idがないと保存できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status id")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
 
       it 'delivery_charge_idがないと保存できない' do
         @item.delivery_charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery charge id")
+        expect(@item.errors.full_messages).to include("Delivery charge must be other than 1")
       end
 
       it 'area_idがないと保存できない' do
         @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area id")
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
 
       it 'ship_date_idがないと保存できない' do
         @item.ship_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship date id")
+        expect(@item.errors.full_messages).to include("Ship date must be other than 1")
       end
 
       it 'priceがないと保存できない' do
@@ -60,7 +60,7 @@ describe Item do
       end
 
       it 'imageがないと保存できない' do
-        @item.image = ""
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
@@ -74,13 +74,13 @@ describe Item do
       it 'priceが300~9999999でないと保存できない' do
         @item.price = "10"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price A")
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
 
       it 'priceが半角数字でないと保存できない' do
         @item.price = "１２３４"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price B")
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
     end

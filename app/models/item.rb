@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :ship_date
 
-  with_options presence :true do
+  with_options presence: true do
     validates :name
     validates :text
     validates :category

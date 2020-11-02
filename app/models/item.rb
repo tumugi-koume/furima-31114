@@ -20,6 +20,7 @@ class Item < ApplicationRecord
     validates :ship_date
     validates :price
     validates :user
+    validates :image
   end
 
   with_options numericality: { other_than: 1 } do

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name               {Faker::String.romdom(length: 4)}
+    name               {Faker::Name.initials(number: 3)}
     text               {Faker::Lorem.sentence}
     category_id        {Faker::Number.between(from: 2, to: 11)}
     status_id          {Faker::Number.between(from: 2, to: 7)}

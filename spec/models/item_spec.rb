@@ -71,10 +71,16 @@ describe Item do
         expect(@item.errors.full_messages).to include('User must exist')
       end
 
-      it 'priceが300~9999999でないと保存できない' do
-        @item.price = '10'
+      it 'priceが300未満だと保存できない' do
+        @item.price = '200'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+
+      it 'priceが9999999以上だと保存できない' do 
+        @item.price = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
 
       it 'priceが半角数字でないと保存できない' do

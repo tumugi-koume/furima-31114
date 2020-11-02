@@ -17,6 +17,8 @@ class Item < ApplicationRecord
     validates :delivery_charge
     validates :area
     validates :ship_date
+    validates :price
+    validates :user
   end
 
   with_options numericality: { other_than: 1 } do

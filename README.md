@@ -30,9 +30,9 @@
 | status_id          | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
 | area_id            | integer    | null: false                    |
-| ship_data_id       | integer    | null: false                    |
+| ship_date_id       | integer    | null: false                    |
 | price              | integer    | null: false                    |
-| user　　            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 

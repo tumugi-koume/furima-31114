@@ -4,15 +4,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     # @item = Item.find(params[:id])
     @order_address = OrderAddress.new(order_params)
-    # if @order_address.valid?
-    #   @order_address.save
-    #   redirect_to root_path
-    # else
-    #   render action: :index
-    # end
+    if @order_address.valid?
+      @order_address.save
+      redirect_to root_path
+    else
+      render action: :index
+    end
   end
 
   private

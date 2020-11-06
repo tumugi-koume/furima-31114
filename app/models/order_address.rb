@@ -13,9 +13,9 @@ class OrderAddress
   end
 
   def save
-    user = User.find(params[:id])
+    # user = User.find(params[:id])
     item = Item.find(params[:id])
-    Order.create(user_id: user.id, item_id: item.id)
+    Order.create(user_id: current_user.id, item_id: item.id)
     Address.create(postal_code: postal_code, area: area, city: city, street: street, building: building, phone: phone)
   end
 end

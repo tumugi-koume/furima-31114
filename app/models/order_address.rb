@@ -2,6 +2,9 @@ class OrderAddress
   include ActiveModel::Model
   attr_accessor :user, :item, :postal_code, :area, :city, :street, :building, :phone
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :area
+
   with_options presence: true do
     validates :user
     validates :item 

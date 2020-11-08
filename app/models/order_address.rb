@@ -9,7 +9,7 @@ class OrderAddress
     validates :area_id, numericality: { other_than: 0, message: "can't be blank"}
     validates :city
     validates :street
-    validates :phone, length: { maximum: 11, message: "maximum is 11 characters"}
+    validates :phone, format: {with: /\A\d{1,11}\z/, message: "is invalid"}
   end
   def save
     order = Order.create(user_id: user_id, item_id: item_id)

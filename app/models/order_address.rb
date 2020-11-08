@@ -12,8 +12,6 @@ class OrderAddress
     validates :phone, length: { maximum: 11, message: "maximum is 11 characters"}
   end
   def save
-    # user = User.find(params[:id])
-    # item = Item.find(params[:id])
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, area_id: area_id, city: city, street: street, building: building, phone: phone, order_id: order.id)
   end

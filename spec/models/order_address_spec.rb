@@ -47,11 +47,5 @@ RSpec.describe OrderAddress, type: :model do
 
     it 'phoneが12桁以上だと保存できないこと' do
     end
-
-    it 'userが紐づいていないと保存できないこと' do
-    end
-
-    it 'itemが紐づいていないと保存できないこと' do
-    end
   end
 end

@@ -77,9 +77,21 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     it 'phoneに-（ハイフン）が入っていると保存できないこと' do
+      @order_address.phone = '090-1234567' 
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Phone is invalid")
     end
 
     it 'phoneが12桁以上だと保存できないこと' do
+      @order_address.phone = '090123456789' 
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Phone is invalid")
+    end
+
+    it 'phoneが半角数字以外だと保存されないこと' do
+      @order_address.phone = '０９０１２３４５６７８' 
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Phone is invalid")
     end
   end
 end

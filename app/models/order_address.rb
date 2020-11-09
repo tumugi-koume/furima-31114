@@ -5,11 +5,11 @@ class OrderAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :area_id, numericality: { other_than: 0, message: "can't select ---"}
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :area_id, numericality: { other_than: 0, message: "can't select ---" }
     validates :city
     validates :street
-    validates :phone, format: {with: /\A\d{1,11}\z/, message: "is invalid"}
+    validates :phone, format: { with: /\A\d{1,11}\z/, message: 'is invalid' }
     validates :token
   end
   def save

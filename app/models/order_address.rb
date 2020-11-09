@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :street, :building, :phone
+  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :street, :building, :phone, :token, :price
 
   with_options presence: true do
     validates :user_id
@@ -10,6 +10,7 @@ class OrderAddress
     validates :city
     validates :street
     validates :phone, format: {with: /\A\d{1,11}\z/, message: "is invalid"}
+    validates :token
   end
   def save
     order = Order.create(user_id: user_id, item_id: item_id)

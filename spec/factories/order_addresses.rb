@@ -4,6 +4,7 @@ FactoryBot.define do
     area_id     { 17 }
     city        { '中野区' }
     street      { '1-1' }
+    building    { 'エール101' }
     phone       { '09012345678' }
     user_id     { 1 }
     item_id     { 1 }
